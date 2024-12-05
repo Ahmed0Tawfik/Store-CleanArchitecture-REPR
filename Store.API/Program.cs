@@ -1,4 +1,4 @@
-
+using Store.Infrastructure;
 namespace Store.API
 {
     public class Program
@@ -12,6 +12,8 @@ namespace Store.API
             builder.Services.AddControllers();
             // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
             builder.Services.AddOpenApi();
+
+            builder.Services.AddStoreDbContext(builder.Configuration.GetSection("ConnectionStrings:DefaultConnection").Value);
 
             var app = builder.Build();
 

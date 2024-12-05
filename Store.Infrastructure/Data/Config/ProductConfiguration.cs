@@ -8,7 +8,10 @@ namespace Store.Infrastructure.Data.Config
     {
         public void Configure(EntityTypeBuilder<Product> builder)
         {
-            builder.Property(p => p.Id)
+            builder.Property(p => p.ProductId)
+                .ValueGeneratedOnAdd();
+
+            builder.Property(p => p.ProductId)
                 .IsRequired();
 
             builder.Property(p => p.Name)
